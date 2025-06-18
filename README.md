@@ -34,9 +34,11 @@ clustering, dimensionality reduction (UMAP), marker gene identification, and tra
     * **`DotPlot`** and **`VlnPlot`** to compare expression levels across clusters.<br>
     * **`RNA and TF Activity Switching`**: Flexibly switch between "RNA" (gene expression) and "tfsulm" (transcription factor activity) assays to display plots.<br><br>
     
-* **Heatmap Generation**: <p>* Generate heatmaps of identified marker genes or inferred transcription factor activities to visually capture differences between cell populations. </p>
+* **Heatmap Generation**: <p>
+    * Generate heatmaps of identified marker genes or inferred transcription factor activities to visually capture differences between cell populations. </p>
 
-* **Results Download**: <p>* Download all generated plots (UMAP, FeaturePlot, DotPlot, VlnPlot, Heatmap) and marker gene lists in PNG/CSV formats.</p>
+* **Results Download**: <p>
+   * Download all generated plots (UMAP, FeaturePlot, DotPlot, VlnPlot, Heatmap) and marker gene lists in PNG/CSV formats.</p>
 
 * **Estimation of Transcription Factor Activity**:<p></p>
     * **`Species`**: Please select species (Human or mouse) of your data sets.
