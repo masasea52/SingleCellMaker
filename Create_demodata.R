@@ -1,33 +1,31 @@
-# 必要なパッケージをインストール (もしインストールされていなければ)
+
 if (!requireNamespace("Matrix", quietly = TRUE)) install.packages("Matrix")
-if (!requireNamespace("utils", quietly = TRUE)) install.packages("utils") # zip関数用
-if (!requireNamespace("R.utils", quietly = TRUE)) install.packages("R.utils") # gzip圧縮用
-if (!requireNamespace("dplyr", quietly = TRUE)) install.packages("dplyr") # データ操作用
-if (!requireNamespace("tibble", quietly = TRUE)) install.packages("tibble") # rownames_to_column用
+if (!requireNamespace("utils", quietly = TRUE)) install.packages("utils") 
+if (!requireNamespace("R.utils", quietly = TRUE)) install.packages("R.utils") 
+if (!requireNamespace("dplyr", quietly = TRUE)) install.packages("dplyr") 
+if (!requireNamespace("tibble", quietly = TRUE)) install.packages("tibble") 
 
 # 1. パラメータ設定
-n_cells <- 500 # 細胞の数をご要望通り500に設定
-output_dir_name <- "demo_10x_data_immune_cells" # 出力フォルダ名
-zip_file_name <- "demo_10x_data.zip" # ZIPファイル名 (アプリで読み込むため同じ名前に)
+n_cells <- 500 
+output_dir_name <- "demo_10x_data_immune_cells" 
+zip_file_name <- "demo_10x_data.zip" 
 
 # 2. 実在する遺伝子名をロード
-# 必ず、添付された 'genes.tsv' ファイルをRの現在の作業ディレクトリに置いてください
+
 genes_df <- read.delim("genes.tsv", header = FALSE, sep = "\t", stringsAsFactors = FALSE) %>%
   dplyr::rename(ID = V1, Symbol = V2)
 
 # デモデータに使用する遺伝子の選択
-n_total_genes_to_use <- 2000 # 使用する総遺伝子数
+n_total_genes_to_use <- 2000 
 mt_genes_from_file <- genes_df$Symbol[grepl("^MT-", genes_df$Symbol, ignore.case = TRUE)]
 non_mt_genes_from_file <- genes_df$Symbol[!grepl("^MT-", genes_df$Symbol, ignore.case = TRUE)]
 
 # 細胞種特異的マーカー遺伝子のリスト
 cell_type_markers <- list(
   "Neutrophil" = c("ELANE", "MPO", "FCGR3B", "CSF3R", "CEACAM8"),
-  "Macrophage" = c("CD68", "CSF1R", "MRC1", "CD163", "ITGAM"), # ITGAM=CD11b
-  "Lymphocyte" = c("CD3D", "CD3G", "CD79A", "MS4A1", "NKG7", "CD8A") # T, B, NK細胞マーカーを混ぜる
+  "Macrophage" = c("CD68", "CSF1R", "MRC1", "CD163", "ITGAM"), 
+  "Lymphocyte" = c("CD3D", "CD3G", "CD79A", "MS4A1", "NKG7", "CD8A") 
 )
-# all_marker_symbols は、今回のスクリプトでは直接は使われないが、参考として残す
-# all_marker_symbols <- unique(unname(unlist(cell_type_markers)))
 
 # 選択する遺伝子シンボル: マーカー遺伝子 + ランダムな非マーカー遺伝子 + MT遺伝子
 selected_marker_symbols <- unique(unname(unlist(lapply(cell_type_markers, function(markers) {
@@ -51,7 +49,7 @@ selected_gene_symbols_final <- unique(c(selected_marker_symbols, selected_random
 selected_genes_df <- genes_df %>%
   dplyr::filter(Symbol %in% selected_gene_symbols_final) %>%
   dplyr::distinct(Symbol, .keep_all = TRUE) %>% # 同じ遺伝子シンボルがある場合に重複を避ける
-  dplyr::arrange(Symbol) # アルファベット順に並べることで再現性を高める (または元のgenes.tsvの順序を保つ)
+  dplyr::arrange(Symbol) 
 
 gene_symbols_final <- selected_genes_df$Symbol
 gene_ids_final <- selected_genes_df$ID
@@ -142,8 +140,6 @@ write.table(features_df_output,
             sep = "\t", quote = FALSE, row.names = FALSE, col.names = FALSE)
 R.utils::gzip(filename = features_path, destname = paste0(features_path, ".gz"), remove = TRUE)
 
-# c) barcodes.tsv.gz - **ここが簡潔化のポイント**
-# cell_typeメタデータはSeuratオブジェクトに直接付与せず、barcodes.tsvには標準の1列のみを保存
 barcodes_df_output <- data.frame(
   Barcode = colnames(dummy_sparse_matrix)
 )
