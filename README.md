@@ -9,9 +9,11 @@ clustering, dimensionality reduction (UMAP), marker gene identification, and tra
 
 ## Key Features
 
-* **Create & Load Demo Data**: <p>* Experience SingleCellMaker: Download Sample Data to dive in! </p>
+* **Create & Load Demo Data**: <p>
+  * Experience SingleCellMaker: Download Sample Data to dive in! </p>
 
-* **10x Genomics Data Upload**: <p>* Directly upload 10x Genomics data folders in ZIP format (containing barcodes.tsv.gz, genes.tsv.gz, matrix.mtx.gz) to initiate analysis. </p>
+* **10x Genomics Data Upload**: <p>
+  * Directly upload 10x Genomics data folders in ZIP format (containing barcodes.tsv.gz, genes.tsv.gz, matrix.mtx.gz) to initiate analysis. </p>
 
 * **Interactive Quality Control (QC)**: <p> Adjust QC filtering parameters based on cell feature counts, total RNA counts, and mitochondrial gene percentages, observing their effects in real-time. </p>
     * **`Min Features (nFeature_RNA)`**: Low-quality cells, often characterized by low unique molecular identifier (UMI) counts or few detected genes, can be indicative of damaged or dying cells. This parameter helps to remove such low-quality cells from the analysis.<br>
