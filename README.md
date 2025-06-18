@@ -29,7 +29,7 @@ clustering, dimensionality reduction (UMAP), marker gene identification, and tra
     * **`test.use = "MAST"`**: This specifies the **statistical test to be used** for differential expression analysis. MAST (Model-based Analysis of Single-cell Transcriptomics) is a popular and robust statistical framework specifically designed for single-cell RNA-seq data. It accounts for the zero-inflated and multimodal nature of scRNA-seq data, making it suitable for identifying true differentially expressed genes.
     Other common tests include `Wilcox` (Wilcoxon Rank Sum test) or `bimod` (Likelihood-ratio test for zero-inflated data), but MAST is often recommended for its performance with single-cell data.<br><br>
 
-* **Gene/TF Expression Visualization**:<p></p>*
+* **Gene/TF Expression Visualization**:<p></p>
     * **`FeaturePlot`** to visualize the expression patterns of selected genes or TFs on the UMAP.<br>
     * **`DotPlot`** and **`VlnPlot`** to compare expression levels across clusters.<br>
     * **`RNA and TF Activity Switching`**: Flexibly switch between "RNA" (gene expression) and "tfsulm" (transcription factor activity) assays to display plots.<br><br>
@@ -38,7 +38,7 @@ clustering, dimensionality reduction (UMAP), marker gene identification, and tra
 
 * **Results Download**: <p>* Download all generated plots (UMAP, FeaturePlot, DotPlot, VlnPlot, Heatmap) and marker gene lists in PNG/CSV formats.</p>
 
-* **Estimation of Transcription Factor Activity**:<p></p>*
+* **Estimation of Transcription Factor Activity**:<p></p>
     * **`Species`**: Please select species (Human or mouse) of your data sets.
     * **`Top N most active TFs for Heatmap`**: Please fill in number you want to show transcription factor activity in heatmap.
 
