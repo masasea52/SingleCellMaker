@@ -1,0 +1,13 @@
+name: SingleCellMaker
+title: SingleCellMaker
+username: many-happy-cat
+account: many-happy-cat
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14811473
+bundleId: 10442744
+url: https://many-happy-cat.shinyapps.io/SingleCellMaker/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: 250606/demo.zip|250606/server.R|250606/ui.R|demo.zip|demo_10x_data_immune_cells/barcodes.tsv.gz|demo_10x_data_immune_cells/features.tsv.gz|demo_10x_data_immune_cells/matrix.mtx.gz|demo_10x_data_real_genes.zip|genes.tsv|install_package.R|README.html|README.md|server - コピー.R|server.docx|SingleCellMaker取扱説明書.docx|SingleCellMaker取扱説明書.pdf|ui - コピー.R|ui.html

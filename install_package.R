@@ -1,0 +1,6 @@
+install.packages("shiny")
+install.packages("ggplot2")
+install.packages("Seurat")
+install.packages("Matrix")
+install.packages("DT")
+install.packages("dplyr")
