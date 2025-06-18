@@ -41,3 +41,10 @@ clustering, dimensionality reduction (UMAP), marker gene identification, and tra
 * **Estimation of Transcription Factor Activity**:<p></p>
     * **`Species`**: Please select species (Human or mouse) of your data sets.
     * **`Top N most active TFs for Heatmap`**: Please fill in number you want to show transcription factor activity in heatmap.
+
+* ** Calculation Pathway Activity**:<p></p>
+    * **'Species'**: Please select species (Human or Mouse) of your data sets.
+    * **'Run Pathway Activity Analysis'**: Click the "Run Pathway Activity Analysis" button to initiate the estimation of major signaling pathway activities based on gene expression.
+    * **'Analysis Progress'**: During Analysis, a progress message, "Estimating pathway activities with Progeny..." will be displayed.
+    * **'Visualize Results'**: Upon completion, the pathway activity results will be displayed as a heatmap or table.
+    * **'Download Results'**: You can download tha analysis results both as a PNG-formatted heatmap and as a CSV file table.
