@@ -863,7 +863,7 @@ shinyServer(function(input, output, session) {
       my_breaks <- c(seq(-max_abs_score, 0, length.out = ceiling(palette_length/2) + 1),
                      seq(0.001, max_abs_score, length.out = floor(palette_length/2)))
       
-      png(file, width = 800, height = 600, units = "px", res = 300)
+      png(file, width = input$tf_download_width_px, height = input$tf_download_height_px, units = "px", res = 200)
       pheatmap(mat_to_plot_download, border_color = NA,
                color = my_color,
                breaks = my_breaks,
@@ -1020,7 +1020,7 @@ shinyServer(function(input, output, session) {
       my_breaks <- c(seq(-max_abs_score, 0, length.out = ceiling(palette_length/2) + 1),
                      seq(0.001, max_abs_score, length.out = floor(palette_length/2)))
       
-      png(file, width = 800, height = 600, units = "px", res = 96)
+      png(file, width = 1500, height = 1500, units = "px", res = 200)
       pheatmap(mat_to_plot, border_color = NA,
                color = my_color,
                breaks = my_breaks,
