@@ -29,7 +29,7 @@ shinyServer(function(input, output, session) {
   tf_top_tfs <- reactiveVal(NULL)
   tf_pheatmap_mat <- reactiveVal(NULL)
   tf_activities_df <- reactiveVal(NULL)
-  progeny_results <- reactiveVal(NULL) # Progeny 結果を格納する reactiveVal を追加
+  progeny_results <- reactiveVal(NULL) 
   
   collectri_net <- reactive({
     req(input$target_spiecies)
